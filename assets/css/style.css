@@ -1,0 +1,101 @@
+/***** General CSS *****/
+body {
+    background: black;
+    background: url("../images/Hobbiton.jpg") no-repeat center center fixed;
+    background-size: auto 1080px;
+    color: white;
+    font-size: 40px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    font-family: "Markazi Text", serif;
+}
+
+@font-face {
+    font-family: "HobbitonBrushhand";
+    src: url("hobbitonbrushhand.woff") format("woff");
+}
+
+#side-mountain {
+    float: right;
+    z-index: 1;
+    width: 50%;
+    /* transform:scaleX(-1); */
+    border: 1px solid magenta;
+    flex-shrink: 0;
+}
+
+header {
+    font-size: 8vw;
+    font-family: HobbitonBrushhand;
+    -webkit-text-stroke: 1px gold;
+    margin: 20px auto;
+    background: rgba(128, 128, 128, .8);
+    padding: 20px;
+    color: goldenrod;
+}
+
+.wrapper {
+    margin: 20px;
+    background: green;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    text-align: center;
+    min-height: 300px;
+    padding-right: 200px;
+    flex: 1 0 auto;
+}
+
+.section {
+    margin: 10px;
+    padding: 10px;
+}
+
+.start-btn {
+    font-size: 60px;
+    font-family: "HobbitonBrushhand";
+    padding: 20px;
+    background: black;
+    color: white;
+    border: 2px solid grey;
+}
+
+.timer {
+}
+
+.question {
+}
+
+.answers {
+    display: flex;
+    display: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/***** Trivia Question CSS *****/
+
+.option:hover {
+    background: goldenrod;
+    border-color: gold;
+    background: linear-gradient(40deg, Khaki, DarkKhaki);
+
+}
+
+.option {
+    padding: 20px;
+    border: 2px outset white;
+    border-radius: 10px;
+    background: silver;
+    background: linear-gradient(10deg,silver, grey);
+    color: black;
+    margin: 10px;
+}
+/***** Final Screen *****/
+.final-results {
+    border: 2px solid black;
+    margin: 20px 400px;
+    border-radius: 5px;
+    padding: 20px;
+}

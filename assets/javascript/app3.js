@@ -10,22 +10,62 @@ let game = {
         {
             question: "Who did Samwise Gamgee marry?",
             answer: "Rosie Cotton",
-            options: ["Harriet Dunben", "Marigold Proudfeet", "Euphemia Sackville"]
+            options: ["Harriet Dunben", "Marigold Proudfeet", "Euphemia Sackville"],
+            imgSrc: "assets/images/samwiseFamily.gif"
         },
         {
             question: "What color is NOT associated with a wizard in Middle Earth?",
             answer: "Red",
-            options: ["Blue", "Brown", "Grey", "White"]
+            options: ["Blue", "Brown", "Grey", "White"],
+            imgSrc: "assets/images/whiteWizard.gif"
         },
         {
-            question: "How many wizard are in Middle Earth?",
+            question: "How many wizards are in Middle Earth?",
             answer: "Five",
-            options: ["One", "Two", "Seven"]
+            options: ["One", "Two", "Seven"],
+            imgSrc: "assets/images/radagast.gif"
         },
         {
             question: "What race is Gandalf?",
             answer: "Maiar",
-            options: ["Human", "Elf", "God"]
+            options: ["Human", "Elf", "God"],
+            imgSrc: "assets/images/gandalf.gif"
+        },
+        {
+            question: "Who did not have a family member featured in 'The Hobbit'?",
+            answer: "Aragorn",
+            options: ["Gimli", "Legolas", "Frodo"],
+            imgSrc: "assets/images/gloin.gif"
+        },
+        {
+            question: "Who was the youngest in the Fellowship?",
+            answer: "Pippin",
+            options: ["Gandalf", "Frodo", "Legolas", "Aragorn", "Merry", "Samwise", "Gimli", "Boromir"],
+            imgSrc: "assets/images/pippin.gif"
+        },
+        {
+            question: "How old is Aragorn?",
+            answer: "87",
+            options: ["37", "57", "77", "107", "127"],
+            imgSrc: "assets/images/aragorn.gif"
+        },
+        {
+            question: "Who forged the rings of power, not including the One Ring?",
+            answer: "Celebrimbor",
+            options: ["Sauron", "Galadriel", "Gandalf", "Elrond"],
+            imgSrc: "assets/images/ringsOfPower.gif"
+        },
+        {
+            question: "What is the name of the pony in the first film?",
+            answer: "Bill",
+            options: ["Spot", "Shadowfax", "Hidalgo", "Brego"],
+            imgSrc: "assets/images/breakfast.gif"
+        },
+        {
+            question: "What is the name of Bilbo's sword that is later given to Frodo?",
+            answer: "Sting",
+            options: ["Orcrist", "Glamdring", "Narsil", "Ringil"],
+            imgSrc: "assets/images/sting.gif"
         }
     ],
     shuffle: function (array) {
@@ -83,8 +123,6 @@ let game = {
         // ***** Display Options *****
         let temp = game.copy(game.questions[game.currQuestion].options);
         temp.push(game.questions[game.currQuestion].answer);
-        console.log("options: " + game.questions[game.currQuestion].options);
-        console.log("temp: " + temp);
         //Shuffle the temp array
         temp = game.shuffle(temp);
         //Print to the screen
@@ -127,43 +165,42 @@ let game = {
         let resultAnswer = $("<h5>");
         resultAnswer.addClass("result-answer");
         //The fun image
-        let qImage = $("<img/>");
-        qImage.addClass("qImage");
+        let qImage = "";
 
         //Check to see how they answered
         //If correct
         if (guess === "correct") {
             game.correct++;
             result.text("Correct!");
-            //qImage.attr("src", game.questions[game.currQuestion].imgSrc);
+            //qImage = "<img src='" + game.questions[game.currQuestion].imgSrc + "' class='qImage'/>";
         }
         //If incorrect
         else if (guess === "incorrect") {
             game.incorrect++;
             result.text("Incorrect!");
             resultAnswer.text("The correct answer is: " + game.questions[game.currQuestion].answer);
-            //qImage.attr("src", game.questions[game.currQuestion].imgSrc);
+            //qImage = "<img src='" + game.questions[game.currQuestion].imgSrc + "' class='qImage'/>";
         }
         //If out of time
         else if (guess === "OOT") {
             game.unanswered++;
             result.text("Out of time!");
             resultAnswer.text("The correct answer is: " + game.questions[game.currQuestion].answer);
-            //qImage.attr("src", game.questions[game.currQuestion].imgSrc);
+            //qImage = "<img src='" + game.questions[game.currQuestion].imgSrc + "' class='qImage'/>";
         }
         //Something went wrong
         else {
             console.log("You done messed up");
         }
-
+        console.log(qImage);
         //Append the results
         $(".question").append(result);
         $(".answers").append(resultAnswer);
-        //$(".answers").append(qImage);
+        $(".answers").append(qImage);
 
         //Move onto next question or final screen
         //game.checkGameDone;
-        setTimeout(() => game.checkGameDone(), 5000);
+        setTimeout(() => game.checkGameDone(), 10000);
     },
     finalScreen: function () {
         game.clearScreen();
@@ -195,9 +232,7 @@ let game = {
     checkGameDone: function () {
         console.log("starting checkGameDone");
         //Move onto the next question
-        console.log("before: " + game.currQuestion);
         game.currQuestion++;
-        console.log("after: " + game.currQuestion);
         //If it exists, diaplsy it
         if (game.currQuestion < game.questions.length) {
             game.displayQuestion();

@@ -1,14 +1,16 @@
 /***** General CSS *****/
 body {
     background: black;
-    background: url("../images/Hobbiton.jpg") no-repeat center center fixed;
-    background-size: auto 1080px;
+    /* background: url("../images/Argonath\ full.jpg") fixed no-repeat center top;  */
+    background-size: cover;
     color: white;
     font-size: 40px;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
     font-family: "Markazi Text", serif;
+    display: grid;
+    grid-template-columns: 2fr 1fr 5fr 1fr 2fr;
+    grid-template-rows: 4fr 6fr 8fr;
+    text-align: center;
+    align-items: end;
 }
 
 @font-face {
@@ -17,35 +19,58 @@ body {
 }
 
 #side-mountain {
-    float: right;
+    grid-column: 4 / 6;
+    grid-row: 2 / 4;
     z-index: 1;
-    width: 50%;
-    /* transform:scaleX(-1); */
-    border: 1px solid magenta;
-    flex-shrink: 0;
+    object-fit: contain;
+    height: 100%;
+}
+
+#left-image {
+    grid-column: 1 / 3;
+    grid-row: 2 / 4;
+    z-index: 1;
+    object-fit: contain;
+    height: 93%;
 }
 
 header {
     font-size: 8vw;
     font-family: HobbitonBrushhand;
-    -webkit-text-stroke: 1px gold;
-    margin: 20px auto;
-    background: rgba(128, 128, 128, .8);
-    padding: 20px;
+    -webkit-text-stroke: 1px black;
     color: goldenrod;
+    background: -webkit-linear-gradient(gold,DarkGoldenrod);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    grid-column: 1 / 6;
+    grid-row: 1 / 2;
+    margin: 10px;
+    padding: 10px;
 }
 
+
 .wrapper {
-    margin: 20px;
-    background: green;
+    margin: 0 300px 20px 100px;
+    background:rgba(10, 10, 10, .5);
+    background: url("../images/Argonath\ full.jpg") no-repeat; 
+    border: 2px grey solid;
+    background-size: cover;
+    background-position: center top;
     display: flex;
     flex-direction: column;
     justify-content: start;
     text-align: center;
-    min-height: 300px;
-    padding-right: 200px;
-    flex: 1 0 auto;
+    grid-column: 2 / 5;
+    grid-row: 2 / 4;
+    margin: 20px;
+    height: 93%;
 }
+
+.wrapper:after {
+    content: "";
+    display: table;
+    clear: both;
+} 
 
 .section {
     margin: 10px;
@@ -55,16 +80,22 @@ header {
 .start-btn {
     font-size: 60px;
     font-family: "HobbitonBrushhand";
-    padding: 20px;
-    background: black;
+    padding: 0 20px;
+    background: rgba(0, 0, 0, .5);
     color: white;
     border: 2px solid grey;
+    margin: 20px;
 }
 
-.timer {
+.start-btn:hover {
+    background: linear-gradient(10deg,silver, grey);
+    color: black;
 }
 
 .question {
+    font-size: 60px;
+    margin: 0;
+    padding: 0 40px;
 }
 
 .answers {
@@ -74,7 +105,12 @@ header {
     justify-content: center;
 }
 
-/***** Trivia Question CSS *****/
+.qImage {
+    max-width: 50%;
+    border: 3px green outset;
+    border-radius: 5%;
+    margin: 5px 400px;
+}
 
 .option:hover {
     background: goldenrod;
@@ -92,10 +128,13 @@ header {
     color: black;
     margin: 10px;
 }
+
 /***** Final Screen *****/
 .final-results {
     border: 2px solid black;
-    margin: 20px 400px;
+    background: rgba(0, 100, 0, .7);
+    min-width: 300px;
+    margin: 20px 30px;
     border-radius: 5px;
     padding: 20px;
 }

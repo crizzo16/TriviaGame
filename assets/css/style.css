@@ -53,6 +53,7 @@ header {
     margin: 0 300px 20px 100px;
     background:rgba(10, 10, 10, .5);
     background: url("../images/Argonath\ full.jpg") no-repeat; 
+    
     border: 2px grey solid;
     background-size: cover;
     background-position: center top;

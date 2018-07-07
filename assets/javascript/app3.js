@@ -204,7 +204,7 @@ let game = {
     },
     finalScreen: function () {
         game.clearScreen();
-        $(".question").append("<h3>All Done!</h3>");
+        $(".question").append("<h3>You finished the quiz!</h3>");
         //Display final results
         let finalResults = $("<div>");
         finalResults.addClass("final-results");

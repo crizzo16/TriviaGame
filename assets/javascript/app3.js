@@ -172,21 +172,21 @@ let game = {
         if (guess === "correct") {
             game.correct++;
             result.text("Correct!");
-            //qImage = "<img src='" + game.questions[game.currQuestion].imgSrc + "' class='qImage'/>";
+            qImage = "<img src='" + game.questions[game.currQuestion].imgSrc + "' class='qImage'/>";
         }
         //If incorrect
         else if (guess === "incorrect") {
             game.incorrect++;
             result.text("Incorrect!");
             resultAnswer.text("The correct answer is: " + game.questions[game.currQuestion].answer);
-            //qImage = "<img src='" + game.questions[game.currQuestion].imgSrc + "' class='qImage'/>";
+            qImage = "<img src='" + game.questions[game.currQuestion].imgSrc + "' class='qImage'/>";
         }
         //If out of time
         else if (guess === "OOT") {
             game.unanswered++;
             result.text("Out of time!");
             resultAnswer.text("The correct answer is: " + game.questions[game.currQuestion].answer);
-            //qImage = "<img src='" + game.questions[game.currQuestion].imgSrc + "' class='qImage'/>";
+            qImage = "<img src='" + game.questions[game.currQuestion].imgSrc + "' class='qImage'/>";
         }
         //Something went wrong
         else {
